@@ -7,7 +7,7 @@
         <button (click)="onClick($event)" id="en-us-sf">San Fransisco</button>
         <button (click)="onClick($event)" id="en-us-ny">New York</button>
       <ul>
-        <li *ngFor="let article of articles.articles">{{article.name}}</li>
+        <li *ngFor="let article of articles.articles">{{article.id}} - {{article.name}}</li>
       </ul>
     </div>
   

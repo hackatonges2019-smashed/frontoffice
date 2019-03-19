@@ -10,8 +10,8 @@ import { Article } from '../article/article.model';
 })
 export class MapComponent implements OnInit {
   title: string = 'My first AGM project';
-  defaultlat: "56.678418";
-  defaultlng: "6.809007";
+  defaultlat = "56.678418";
+  defaultlng = "6.809007";
   positions: Array<{lat: string, lng: string}> = [
     {lat:"51.678418", lng: "7.809007"},
     {lat:"55.678418", lng: "3.809007"},

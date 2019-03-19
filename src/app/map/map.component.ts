@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from './map.service';
-import { Map } from './map.model';
+import { Article } from '../article/article.model';
 
 
 @Component({
@@ -14,13 +14,13 @@ export class MapComponent implements OnInit {
 
   constructor(private mapService : MapService) { }
 
-  articles: Map[];
+  articles: Article[];
 
   country= 'edition=fr-fr';
   onClick(event) {
    // var target = event.target || event.srcElement || event.currentTarget;
    this.country = "edition=" + event.target.id;
-   console.log("ONCLICK" + this.country);
+   console.log("ONCLICK : " + this.country);
    this.getArticles();
   }
 

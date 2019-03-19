@@ -7,12 +7,16 @@ import { MapComponent } from './map/map.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MapService } from './map/map.service';
+import { ArticleComponent } from './article/article.component';
+import { MarkerComponent } from './marker/marker.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    ArticleComponent,
+    MarkerComponent
   ],
   imports: [
     BrowserModule,

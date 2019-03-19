@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Map } from './map.model';
+import { Article } from '../article/article.model';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { headersToString } from 'selenium-webdriver/http';
@@ -24,8 +24,8 @@ export class MapService {
   
   constructor(private http:HttpClient) { }
 
-  getData(country): Observable<Map[]> {
+  getData(country): Observable<Article[]> {
     console.log(country);
-    return this.http.get<Map[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=faits+divers+paris&hard_limit=200");
+    return this.http.get<Article[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=faits+divers+paris&hard_limit=200");
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article } from '../article/article.model';
+import { Article } from './article.model';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { headersToString } from 'selenium-webdriver/http';
@@ -9,7 +9,7 @@ import { headersToString } from 'selenium-webdriver/http';
 @Injectable({
   providedIn: 'root'
 })
-export class MapService {
+export class ArticleService {
 
   private apiUrl = 'https://api.ozae.com/gnw/articles?';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MapService } from './map.service';
+import { ArticleService } from '../article/article.service';
 import { Article } from '../article/article.model';
 
 
@@ -12,7 +12,7 @@ export class MapComponent implements OnInit {
 
   test = "Voici une liste d'articles :";
 
-  constructor(private mapService : MapService) { }
+  constructor(private mapService : ArticleService) { }
 
   articles: Article[];
 

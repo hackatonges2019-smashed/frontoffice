@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { headersToString } from 'selenium-webdriver/http';
 
+import { ozae_key } from '../../environments/environment';
+
 
 
 @Injectable({
@@ -13,7 +15,7 @@ export class ArticleService {
 
   private apiUrl = 'https://api.ozae.com/gnw/articles?';
 
-  private apiKey = 'key=11116dbf000000000000960d2228e999';
+  private apiKey = 'key='+ozae_key.value;
 
   private date = "date=20180601__20180630";
 

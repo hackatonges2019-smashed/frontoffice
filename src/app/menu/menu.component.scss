@@ -1,0 +1,52 @@
+.menu-style {
+
+    width: 60%;
+    height: 100px;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 20%;
+
+    div {
+        text-align: center;
+        
+        a {
+            position: fixed;
+            bottom:3px;
+        }
+    }
+    
+}
+
+.transform {
+    -webkit-transition: all 2s ease;  
+    -moz-transition: all 2s ease;  
+    -o-transition: all 2s ease;  
+    -ms-transition: all 2s ease;  
+    transition: all 2s ease;
+  }
+  
+  .transform-active {
+    height: 400px;
+  }
+
+.categories {
+
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        display: inline;
+        margin: 5px;
+        padding: 30px;
+        
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        font-size: 2.5em;
+    }
+    li:hover {
+        color: white;
+    }
+} 

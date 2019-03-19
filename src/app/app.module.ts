@@ -11,6 +11,7 @@ import { ArticleComponent } from './article/article.component';
 import { MarkerComponent } from './marker/marker.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AgmCoreModule } from '@agm/core';
     AppComponent,
     MapComponent,
     ArticleComponent,
-    MarkerComponent
+    MarkerComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

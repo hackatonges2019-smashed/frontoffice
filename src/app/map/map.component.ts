@@ -16,10 +16,10 @@ export class MapComponent implements OnInit {
 
   articles: Map[];
 
-  country= 'country=fr&';
+  country= 'edition=fr-fr';
   onClick(event) {
    // var target = event.target || event.srcElement || event.currentTarget;
-   this.country = "country=" + event.target.id +"&";
+   this.country = "edition=" + event.target.id;
    console.log("ONCLICK" + this.country);
    this.getArticles();
   }

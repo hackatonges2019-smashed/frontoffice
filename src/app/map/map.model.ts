@@ -1,5 +1,5 @@
 export class Map {   
-    author: string;
+    name: string;
     content:string;
     description: string;
     publishedAt: string;

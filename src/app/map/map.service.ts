@@ -11,15 +11,15 @@ import { headersToString } from 'selenium-webdriver/http';
 })
 export class MapService {
 
-  private apiUrl = 'https://newsapi.org/v2/top-headlines?' +
-  'country=fr&' +
-  'apiKey=d8586494ebb34fada0c12b3bd752cbb4';
+  private apiUrl = 'https://newsapi.org/v2/top-headlines?';
+
+  private apiKey = 'apiKey=d8586494ebb34fada0c12b3bd752cbb4';
 
 
   
   constructor(private http:HttpClient) { }
 
-  getData(): Observable<Map[]> {
-    return this.http.get<Map[]>(this.apiUrl);
+  getData(country): Observable<Map[]> {
+    return this.http.get<Map[]>(this.apiUrl + country  + this.apiKey);
   }
 }

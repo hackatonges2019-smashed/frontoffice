@@ -16,8 +16,17 @@ export class MapComponent implements OnInit {
 
   articles: Map[];
 
+  country= 'country=fr&';
+  onClick(event) {
+   // var target = event.target || event.srcElement || event.currentTarget;
+   this.country = "country=" + event.target.id +"&";
+   console.log("ONCLICK" + this.country);
+   this.getArticles();
+  }
+
   getArticles(): void {
-    this.mapService.getData().subscribe(articles => {
+    console.log("GETARTICLES : " + this.country);
+    this.mapService.getData(this.country).subscribe(articles => {
       this.articles = articles;
     });
     

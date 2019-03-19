@@ -2,6 +2,10 @@
   {{test}}
 
   <div>
+      <button (click)="onClick($event)" id="nl">Pays-bas</button>
+      <button (click)="onClick($event)" id="fr">France</button>
+      <button (click)="onClick($event)" id="ma">Maroc</button>
+      <button (click)="onClick($event)" id="be">Belgique</button>
     <ul>
       <li *ngFor="let article of articles.articles">{{article.title}}</li>
     </ul>

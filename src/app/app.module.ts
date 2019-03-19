@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { MapService } from './map/map.service';
+import { ArticleService } from './article/article.service';
+import { ArticleComponent } from './article/article.component';
+import { MarkerComponent } from './marker/marker.component';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -14,7 +16,9 @@ import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    ArticleComponent,
+    MarkerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { AgmCoreModule } from '@agm/core';
     })
   ],
   providers: [
-    MapService
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })

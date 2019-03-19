@@ -8,6 +8,8 @@ import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapService } from './map/map.service';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { MapService } from './map/map.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCoM31LD007GnfDxcFciJkVlNbc4_7xfFU'
+    })
   ],
   providers: [
     MapService

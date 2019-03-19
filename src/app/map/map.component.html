@@ -1,12 +1,9 @@
-<p>
-  {{test}}
+<h1>{{ title }}</h1>
 
-  <div>
-      <button (click)="onClick($event)" id="nl">Pays-bas</button>
-      <button (click)="onClick($event)" id="fr">France</button>
-      <button (click)="onClick($event)" id="ma">Maroc</button>
-      <button (click)="onClick($event)" id="be">Belgique</button>
-    <ul>
-      <li *ngFor="let article of articles.articles">{{article.title}}</li>
-    </ul>
-  </div>
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="48.8534" [longitude]="2.3488">
+  <agm-marker *ngFor='let position of positions' [latitude]="position.lat" [longitude]="position.lng">
+    <agm-info-window>Test</agm-info-window>
+  </agm-marker>
+</agm-map>

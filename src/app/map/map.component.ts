@@ -9,30 +9,36 @@ import { Article } from '../article/article.model';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
+  title: string = 'My first AGM project';
+  defaultlat: "56.678418";
+  defaultlng: "6.809007";
+  positions: Array<{lat: string, lng: string}> = [
+    {lat:"51.678418", lng: "7.809007"},
+    {lat:"55.678418", lng: "3.809007"},
+  ];
+  
+  
 
-  test = "Voici une liste d'articles :";
+  constructor() { }
 
-  constructor(private mapService : ArticleService) { }
+  // onClick(event) {
+  //  // var target = event.target || event.srcElement || event.currentTarget;
+  //  this.country = "country=" + event.target.id +"&";
+  //  console.log("ONCLICK" + this.country);
+  //  this.getArticles();
+  // }
 
-  articles: Article[];
-
-  country= 'edition=fr-fr';
-  onClick(event) {
-   // var target = event.target || event.srcElement || event.currentTarget;
-   this.country = "edition=" + event.target.id;
-   console.log("ONCLICK : " + this.country);
-   this.getArticles();
-  }
-
-  getArticles(): void {
-    console.log("GETARTICLES : " + this.country);
-    this.mapService.getData(this.country).subscribe(articles => {
-      this.articles = articles;
-    });
+  // getArticles(): void {
+  //   console.log("GETARTICLES : " + this.country);
+  //   this.mapService.getData(this.country).subscribe(articles => {
+  //     this.articles = articles;
+  //   });
     
-  }
+  // }
   ngOnInit() {
-    this.getArticles();
+    console.log(this.positions);
+    // this.getArticles();
   }
+
 
 }

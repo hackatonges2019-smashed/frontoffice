@@ -10,6 +10,8 @@ import { ArticleService } from './article/article.service';
 import { ArticleComponent } from './article/article.component';
 import { MarkerComponent } from './marker/marker.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { MarkerComponent } from './marker/marker.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCoM31LD007GnfDxcFciJkVlNbc4_7xfFU'
+    })
   ],
   providers: [
     ArticleService

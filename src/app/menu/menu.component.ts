@@ -14,7 +14,20 @@ export class MenuComponent implements OnInit {
   clicked(){
     console.log("tu a cliqué");
     $('.transform').toggleClass('transform-active');
+
+if($('.transform').hasClass('transform-active')){
+    setTimeout(function(){ 
+      $('.test').toggleClass('test-hide');
+      $('.hide').toggleClass('visible');
+  } , 900);
+  } else {
+    setTimeout(function(){ 
+      $('.test').toggleClass('test-hide');
+      $('.hide').toggleClass('visible');
+  } , 350);
   }
+}
+    
   ngOnInit() {
     console.log("hey");
   }

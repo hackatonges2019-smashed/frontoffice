@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Directive} from '@angular/core';
 import { ArticleService } from '../article/article.service';
 import { Article } from '../article/article.model';
 import { Marker } from '../marker/marker.model';
@@ -16,6 +16,11 @@ export class MapComponent implements OnInit {
   defaultlng: number = 2.481905;
   positions: Marker[];
   
+
+  icons = {
+    icon: '/assets/img/rond.png',
+    }
+
   public customStyle = [
     {
       "elementType": "labels.icon",
@@ -296,6 +301,7 @@ export class MapComponent implements OnInit {
   ];
 
   constructor(private markers : MarkersService) { }
+
 
   ngOnInit() {
     this.positions = this.markers.getMarkers();

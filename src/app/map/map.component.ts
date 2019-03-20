@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article/article.service';
 import { Article } from '../article/article.model';
+import { Marker } from '../marker/marker.model';
+import { MarkersService } from '../marker/markers.service';
 
 
 @Component({
@@ -298,12 +300,34 @@ export class MapComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private markers : MarkersService) { }
 
+<<<<<<< HEAD
   
   
+=======
+  // onClick(event) {
+  //  // var target = event.target || event.srcElement || event.currentTarget;
+  //  this.country = "country=" + event.target.id +"&";
+  //  console.log("ONCLICK" + this.country);
+  //  this.getArticles();
+  // }
+
+  // getArticles(): void {
+  //   console.log("GETARTICLES : " + this.country);
+  //   this.mapService.getData(this.country).subscribe(articles => {
+  //     this.articles = articles;
+  //   });
+    
+  // }
+  getPositions(){
+
+  }
+
+>>>>>>> 4574478357d78970162eb1f8f4b1d54e5399a7c1
   ngOnInit() {
-    console.log(this.positions);
+    this.positions = this.markers.getMarkers();
+    // console.log(this.positions);
     // this.getArticles();
   }
 

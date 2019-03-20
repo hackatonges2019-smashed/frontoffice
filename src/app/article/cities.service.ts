@@ -19,7 +19,6 @@ export class CitiesService {
   constructor(private http:HttpClient) { }
 
   getData(dept): Observable<City[]> {
-    console.log(this.apiUrl + dept + this.params);
     return this.http.get<City[]>(this.apiUrl + dept + this.params);
   }
 }

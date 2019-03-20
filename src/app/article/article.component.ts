@@ -18,54 +18,84 @@ export class ArticleComponent implements OnInit {
 
   articles: Article[];
   department: Departement[];
-  cities: City[];
+  cities: City[] = [];
 
   country= 'edition=fr-fr';
+
 
   onClick(event) {
    // var target = event.target || event.srcElement || event.currentTarget;
    this.country = "edition=" + event.target.id;
    console.log("ONCLICK : " + this.country);
-   this.getCities();
-   console.log(this.cities);
+   this.getArticles().then(
+     () => {
+       console.log("nb articles : " + this.articles.length);
+       console.log("nb cities : " + this.cities.length);
+       console.log("nb department : " + this.department.length);
+       console.log("END ----");
+   });
+   // console.log(this.articles);
   }
 
-  getArticles(): void {
-    this.getCities();
-    console.log("GETARTICLES : " + this.country);
-    this.articleService.getData(this.country,"faits+divers+paris").subscribe(articles => {
-      this.articles = articles;
-    }); 
+  async getArticles() {
+    await this.getCities().then(
+      () => {
+        let promisesArticle = [];
+        console.log("CITIES. OK");
+        console.log("GETARTICLES : " + this.country);
+        // console.log(this.cities);
+          for(let city=0; city < this.cities.length; city++){
+            // console.log(this.cities[city]);
+            promisesArticle.push(new Promise ((resolve, reject) => {
+              this.articleService.getData(this.country,"faits+divers+"+this.cities[city].nom).subscribe(article => {
+                this.articles = article;
+                resolve(true);
+              });
+            }));
+          }
+        return Promise.all(promisesArticle).then(function() {
+            console.log("all articles loaded");
+        });
+      }
+    );
+    // this.articleService.getData(this.country,"faits+divers+paris").subscribe(articles => {
+    //   this.articles = articles;
+    // }); 
   }
 
-  async getDepartement() {
-    await this.departementService.getData().subscribe(department => {
-      this.department = department;
+  getDepartement() {
+    return new Promise ((resolve, reject) => {this.departementService.getData().subscribe(department => {
+        this.department = department;
+        resolve(true);
+      });
     });
   }
 
-  getCities(): void {
-    this.getDepartement();
-    console.log(this.department);
-    for(let dept in this.department){
-      console.log("GETCITIES for : " + dept);
-      this.citiesService.getData(dept).subscribe(city => {
-        console.log(city);
-        this.cities = city;
-      });
-    }
+  async getCities() {
+    await this.getDepartement().then(
+        () => {
+          let promises = [];
+          console.log("DEPT. OK");
+          // console.log(this.department);
+          for(let dept=0; dept < this.department.length; dept++){
+            promises.push(new Promise ((resolve, reject) => {
+              this.citiesService.getData(this.department[dept].code).subscribe(city => {
+                  this.cities = this.cities.concat(city);
+                  resolve(true);
+              });
+            }));
+          }
+          return Promise.all(promises).then(function() {
+              console.log("all cities loaded");
+          });
+        }
+    );
+    // return Promise.();
     // return this.cities; 
   }
 
   ngOnInit() {
-    // this.getCities();
-    console.log("HERE !!")
-    this.getDepartement();
-    setTimeout(function () {
-        console.log(this.department);
-    }, 2500);
-    
-    // console.log(this.cities);
+    console.log("HERE 2 !!")
     // this.getArticles();
   }
 

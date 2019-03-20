@@ -27,8 +27,8 @@ export class ArticleService {
   constructor(private http:HttpClient) { }
 
   getData(country,keywords): Observable<Article[]> {
-    console.log(country);
-    console.log(keywords);
+    // console.log(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=200");
+    // console.log(keywords);
     return this.http.get<Article[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=200");
   }
 }

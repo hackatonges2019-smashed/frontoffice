@@ -1,12 +1,13 @@
 .menu-style {
 
     width: 50%;
-    height: 100px;
-    background-color: red;
+    height: 80px;
+    background-color: #7AF395;
     border-top-left-radius: 42px;
     border-top-right-radius: 42px;
     position: absolute;
     bottom: 0px;
+    
     margin-left: 25%;
 
     div {
@@ -19,6 +20,7 @@
             background-repeat: no-repeat;
             width: 25px;
             height:26px;
+            cursor:pointer;
         }
 
         a.hide {
@@ -26,10 +28,11 @@
         }
         a.visible {
             display: inline;
-            color:white;
+            color: #022712;
             font-weight:bold;
             position: absolute;
             bottom:25px;
+            cursor:pointer;
         }
 
         .left {
@@ -58,16 +61,18 @@
             display: inline-block;
             margin: 5px;
             font-weight: bold;
-            font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            color: #022712;
             font-size: 1.2em;
             border: 1px solid black;
             padding: 5px 18px 5px 18px;
             border-radius: 25px;
             margin-top: 13px;
+            cursor:pointer;
         }
         li:hover {
-            color: white;
-            border: 1px solid white;
+            color: #26903D;
+            border: 1px solid #26903D;
         }
     }
     input {
@@ -105,7 +110,7 @@
   }
   
   .transform-active {
-    height: 365px;
+    height: 390px;
 
     div {
         text-align: center;
@@ -117,6 +122,7 @@
             background-repeat: no-repeat;
             width: 25px;
             height:26px;
+            cursor:pointer;
         }
     }
   }
@@ -128,15 +134,21 @@
     padding-left: 0;
 
     li {
-        display: inline;
+        display: inline-block;
         margin: 5px;
-        padding: 30px;
+        margin: 30px;
+        padding-bottom: 3px;
+        margin-bottom: 0;
+        margin-top: 0;
+        color: #022712;
         font-weight: bold;
-        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-        font-size: 1.7em;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 120%;
+        cursor:pointer;
     }
     li:hover {
-        color: white;
+        color: #26903D;
+        border-bottom:2px solid #26903D;
     }
 } 
 

@@ -102,6 +102,22 @@ export class MapComponent implements OnInit {
       ]
     },
     {
+      "featureType": "administrative.locality",
+      "stylers": [
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.province",
+      "stylers": [
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
       "featureType": "landscape",
       "elementType": "geometry",
       "stylers": [
@@ -173,15 +189,6 @@ export class MapComponent implements OnInit {
       ]
     },
     {
-      "featureType": "road.arterial",
-      "elementType": "labels",
-      "stylers": [
-        {
-          "visibility": "off"
-        }
-      ]
-    },
-    {
       "featureType": "road.highway",
       "elementType": "geometry.fill",
       "stylers": [
@@ -205,15 +212,6 @@ export class MapComponent implements OnInit {
         },
         {
           "weight": 0.2
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "labels",
-      "stylers": [
-        {
-          "visibility": "off"
         }
       ]
     },

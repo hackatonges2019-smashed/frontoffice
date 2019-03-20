@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { headersToString } from 'selenium-webdriver/http';
 
+import { ozae_key } from '../../environments/environment';
+
 
 
 @Injectable({
@@ -13,7 +15,7 @@ export class ArticleService {
 
   private apiUrl = 'https://api.ozae.com/gnw/articles?';
 
-  private apiKey = 'key=11116dbf000000000000960d2228e999';
+  private apiKey = 'key='+ozae_key.value;
 
   private date = "date=20180601__20180630";
 
@@ -24,8 +26,9 @@ export class ArticleService {
   
   constructor(private http:HttpClient) { }
 
-  getData(country): Observable<Article[]> {
-    console.log(country);
-    return this.http.get<Article[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=faits+divers+paris&hard_limit=200");
+  getData(country,keywords): Observable<Article[]> {
+    // console.log(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=200");
+    // console.log(keywords);
+    return this.http.get<Article[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=5");
   }
 }

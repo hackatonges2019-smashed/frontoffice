@@ -12,6 +12,8 @@ import { MarkerComponent } from './marker/marker.component';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { mapsapikey } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCoM31LD007GnfDxcFciJkVlNbc4_7xfFU'
+      apiKey: mapsapikey.value
     })
   ],
   providers: [

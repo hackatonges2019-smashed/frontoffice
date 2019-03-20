@@ -19,12 +19,12 @@ if($('.transform').hasClass('transform-active')){
     setTimeout(function(){ 
       $('.test').toggleClass('test-hide');
       $('.hide').toggleClass('visible');
-  } , 900);
+  } , 1200);
   } else {
     setTimeout(function(){ 
       $('.test').toggleClass('test-hide');
       $('.hide').toggleClass('visible');
-  } , 350);
+  } , 250);
   }
 }
     

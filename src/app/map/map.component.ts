@@ -14,10 +14,7 @@ export class MapComponent implements OnInit {
   title: string = 'My first AGM project';
   defaultlat: number = 47.454148;
   defaultlng: number = 2.481905;
-  positions: Array<{lat: string, lng: string}> = [
-    {lat:"51.678418", lng: "7.809007"},
-    {lat:"55.678418", lng: "3.809007"},
-  ];
+  positions: Marker[];
   
   public customStyle = [
     {
@@ -304,7 +301,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.positions = this.markers.getMarkers();
-    // console.log(this.positions);
+    console.log(this.positions);
     // this.getArticles();
   }
   

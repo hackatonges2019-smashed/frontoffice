@@ -4,7 +4,12 @@
 <div class="map-position">
     <agm-map [zoom]="6"  [minZoom]="3" [latitude]="defaultlat" [longitude]="defaultlng" style="height: 100vh;" [styles]="customStyle">
         <agm-marker *ngFor='let position of positions' [latitude]="position.lat" [longitude]="position.lng">
-          <agm-info-window>Test</agm-info-window>
+          <agm-info-window>
+            <h5>{{position.nom}}</h5>
+            <ul *ngIf="position.articles">
+              <li *ngFor='let article of position.articles.articles'><a href="{{article.url}}" target="_blank">{{article.name}}</a></li>
+            </ul>
+          </agm-info-window>
         </agm-marker>
       </agm-map>
       

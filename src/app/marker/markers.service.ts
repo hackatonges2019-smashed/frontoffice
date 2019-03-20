@@ -47,8 +47,9 @@ export class MarkersService {
             // console.log(this.cities[city]);
             if(this.cities[city].population > 50000){
             	let marker = new Marker();
-            	marker.lat = this.cities[city].centre.coordinates[0];
-            	marker.lng = this.cities[city].centre.coordinates[1];
+            	marker.lat = this.cities[city].centre.coordinates[1];
+            	marker.lng = this.cities[city].centre.coordinates[0];
+            	marker.nom = this.cities[city].nom;
 	            promisesArticle.push(new Promise ((resolve, reject) => {
 	              this.articleService.getData(this.country,"faits+divers+"+this.cities[city].nom).subscribe(article => {
 	                this.articles = this.articles.concat(article);

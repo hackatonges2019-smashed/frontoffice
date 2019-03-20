@@ -10,7 +10,7 @@ import { headersToString } from 'selenium-webdriver/http';
 export class CitiesService {
   private apiUrl = 'https://geo.api.gouv.fr/departements/';
 
-  private params = "/communes?fields=nom,code,codesPostaux,centre&format=json&geometry=centre";
+  private params = "/communes?fields=nom,code,codesPostaux,centre,population&format=json&geometry=centre";
 
   // https://geo.api.gouv.fr/departements/92/communes?fields=nom,code,codesPostaux,centre,surface,codeDepartement,departement,codeRegion,region,population
   // &format=json

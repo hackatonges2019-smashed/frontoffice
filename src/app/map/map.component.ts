@@ -35,8 +35,12 @@ export class MapComponent implements OnInit {
   //   });
     
   // }
+  getPositions(){
+    
+  }
+
   ngOnInit() {
-    console.log(this.positions);
+    // console.log(this.positions);
     // this.getArticles();
   }
 

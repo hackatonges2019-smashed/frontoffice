@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    padding: 0 !important;
+    margin:0 !important;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+  }
+  .gmnoprint div {
+    background:none !important;
+  }
+  #GMapsID div div a div img{
+    display:none;
+  }
+
+  

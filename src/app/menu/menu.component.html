@@ -1,10 +1,11 @@
 <div class="menu-style transform">
   <ul class="categories">
-    <li keyword="crimes">Crimes</li>
+    <li *ngFor="let category of categories.value" keyword="category.nom">{{category.nom}}</li>
+    <!-- <li keyword="crimes">Crimes</li>
     <li keyword="accidents">Accidents</li>
     <li keyword="incendie">Incendie</li>
     <li keyword="drogues">Drogues</li>
-    <li keyword="insolite">Insolite</li>
+    <li keyword="insolite">Insolite</li> -->
   </ul>
   <div class="test">
     <div class="line"></div>  <ul class="sous-categories">

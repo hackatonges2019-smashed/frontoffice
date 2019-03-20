@@ -16,4 +16,33 @@ body {
     display:none;
   }
 
+  div[style^="cursor"] {
+    width: 171px !important;
+    background-color: transparent;
+    }
+    div[style^="display"] {
+      width: 237px !important;
+      height: 200px !important;
+      background-color: transparent;
+      border-radius: 10px !important;
+    }
+    div[style^="cursor"] > div > div[style^="position"] {
+      width: 170px !important;
+      height: 218px !important;
+      background-color: white !important;
+      border-radius: 10px !important;
+      margin-top: 15px;
+    }
+    .gm-ui-hover-effect {
+      top: 11px !important;
+    }
+
+    
+    .gm-style-iw {
+      width: 171px !important;
+    top: 15px !important;
+    left: 0px !important;
+    background-color: transparent;
+    }
+
   

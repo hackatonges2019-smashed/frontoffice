@@ -17,7 +17,11 @@ export class ArticleService {
 
   private apiKey = 'key='+ozae_key.value;
 
-  private date = "date=20180601__20180630";
+  private currentDate = new Date();
+
+  private dateNow: string = this.yyyymmdd(this.currentDate,0);
+
+  private dateThreeMonthsAgo: string = this.yyyymmdd(this.currentDate,3);
 
   // CONTRY : edition=fr-fr
   // query=macron
@@ -27,8 +31,20 @@ export class ArticleService {
   constructor(private http:HttpClient) { }
 
   getData(country,keywords): Observable<Article[]> {
-    // console.log(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=200");
+    // console.log(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
     // console.log(keywords);
-    return this.http.get<Article[]>(this.apiUrl + this.date +"&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=5");
+    return this.http.get<Article[]>(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
+  }
+
+  yyyymmdd(date,month) {
+    date.setMonth(date.getMonth()-month);
+    var y = date.getFullYear().toString();
+    var m = date.getMonth().toString();
+    console.log(m);
+    var d = date.getDate().toString();
+    (d.length == 1) && (d = '0' + d);
+    (m.length == 1) && (m = '0' + m);
+    var yyyymmdd = y + m + d;
+    return yyyymmdd;
   }
 }

@@ -298,7 +298,7 @@ export class MapComponent implements OnInit {
   constructor(private markers : MarkersService) { }
 
   ngOnInit() {
-    this.positions = this.markers.getMarkers();
+    this.positions = this.markers.getMarkers("faits+divers");
     console.log(this.positions);
     // this.getArticles();
   }

@@ -21,10 +21,10 @@ export class MarkersService {
   private cities: City[] = [];
   private markers: Marker[] = [];
 
-  getMarkers(): Marker[] {
+  getMarkers(keywords): Marker[] {
    // var target = event.target || event.srcElement || event.currentTarget;
    console.log("GETMARKERS : " + this.country);
-   this.getArticles().then(
+   this.getArticles(keywords).then(
      () => {
        console.log("nb markers : " + this.markers.length);
        console.log("nb articles : " + this.articles.length);
@@ -36,7 +36,7 @@ export class MarkersService {
    // console.log(this.articles);
   }
 
-  async getArticles() {
+  async getArticles(keywords) {
     await this.getCities().then(
       () => {
         let promisesArticle = [];
@@ -45,19 +45,34 @@ export class MarkersService {
         // console.log(this.cities);
           for(let city=0; city < this.cities.length; city++){
             // console.log(this.cities[city]);
-            if(this.cities[city].population > 50000){
-            	let marker = new Marker();
-            	marker.lat = this.cities[city].centre.coordinates[1];
-            	marker.lng = this.cities[city].centre.coordinates[0];
-            	marker.nom = this.cities[city].nom;
+            if(this.cities[city].population > 25000){
+            	
 	            promisesArticle.push(new Promise ((resolve, reject) => {
-	              this.articleService.getData(this.country,"faits+divers+"+this.cities[city].nom).subscribe(article => {
-	                this.articles = this.articles.concat(article);
-	                marker.articles = article;
-	                resolve(true);
-	              });
+	            	if(localStorage.getItem("articles_"+keywords+"_"+this.cities[city].nom)){
+	            		let article = JSON.parse(localStorage.getItem("articles_"+keywords+"_"+this.cities[city].nom));
+	            		this.articles = this.articles.concat(article);
+	            		let marker = new Marker();
+					    marker.lat = this.cities[city].centre.coordinates[1];
+					    marker.lng = this.cities[city].centre.coordinates[0];
+					    marker.nom = this.cities[city].nom;
+			            marker.articles = article;
+		            	this.markers.push(marker);
+	            	}else {
+		              this.articleService.getData(this.country,keywords+"+"+this.cities[city].nom).subscribe(article => {
+		                this.articles = this.articles.concat(article);
+		                if(article['articles'].length > 0){
+		                	let marker = new Marker();
+					        marker.lat = this.cities[city].centre.coordinates[1];
+					        marker.lng = this.cities[city].centre.coordinates[0];
+					        marker.nom = this.cities[city].nom;
+			               	marker.articles = article;
+		            		this.markers.push(marker);
+	       					localStorage.setItem("articles_"+keywords+"_"+this.cities[city].nom, JSON.stringify(article));
+		                }
+		                resolve(true);
+		              });
+		            }
 	            }));
-            	this.markers.push(marker);
             }
           }
         return Promise.all(promisesArticle).then(function() {

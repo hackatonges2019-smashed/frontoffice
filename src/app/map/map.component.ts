@@ -302,34 +302,10 @@ export class MapComponent implements OnInit {
 
   constructor(private markers : MarkersService) { }
 
-<<<<<<< HEAD
-  
-  
-=======
-  // onClick(event) {
-  //  // var target = event.target || event.srcElement || event.currentTarget;
-  //  this.country = "country=" + event.target.id +"&";
-  //  console.log("ONCLICK" + this.country);
-  //  this.getArticles();
-  // }
-
-  // getArticles(): void {
-  //   console.log("GETARTICLES : " + this.country);
-  //   this.mapService.getData(this.country).subscribe(articles => {
-  //     this.articles = articles;
-  //   });
-    
-  // }
-  getPositions(){
-
-  }
-
->>>>>>> 4574478357d78970162eb1f8f4b1d54e5399a7c1
   ngOnInit() {
     this.positions = this.markers.getMarkers();
     // console.log(this.positions);
     // this.getArticles();
   }
-
-
+  
 }

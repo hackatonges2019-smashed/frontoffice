@@ -21,7 +21,7 @@ export class MarkersService {
   private cities: City[] = [];
   private markers: Marker[] = [];
 
-  getMarkers() {
+  getMarkers(): Marker[] {
    // var target = event.target || event.srcElement || event.currentTarget;
    console.log("GETMARKERS : " + this.country);
    this.getArticles().then(
@@ -32,6 +32,7 @@ export class MarkersService {
        console.log("nb department : " + this.department.length);
        console.log("END ----");
    });
+   return this.markers;
    // console.log(this.articles);
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article/article.service';
 import { Article } from '../article/article.model';
+import { Marker } from '../marker/marker.model';
+import { MarkersService } from '../marker/markers.service';
 
 
 @Component({
@@ -12,14 +14,11 @@ export class MapComponent implements OnInit {
   title: string = 'My first AGM project';
   defaultlat = "56.678418";
   defaultlng = "6.809007";
-  positions: Array<{lat: string, lng: string}> = [
-    {lat:"51.678418", lng: "7.809007"},
-    {lat:"55.678418", lng: "3.809007"},
-  ];
+  positions: Marker[];
   
   
 
-  constructor() { }
+  constructor(private markers : MarkersService) { }
 
   // onClick(event) {
   //  // var target = event.target || event.srcElement || event.currentTarget;
@@ -36,10 +35,11 @@ export class MapComponent implements OnInit {
     
   // }
   getPositions(){
-    
+
   }
 
   ngOnInit() {
+    this.positions = this.markers.getMarkers();
     // console.log(this.positions);
     // this.getArticles();
   }

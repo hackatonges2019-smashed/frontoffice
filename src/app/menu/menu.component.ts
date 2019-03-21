@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   // categories: Category[];
   categories: Category[];
-  subcategories: Category[];// = new Category[];
+  subcategories: Category[];
   active:any;
 
   constructor(private categoriesService: CategoriesService) { }
@@ -51,8 +51,6 @@ export class MenuComponent implements OnInit {
     this.categoriesService.getCategories().subscribe(cat => {
       this.categories = cat;
     });
-    console.log(this.categories);
-    console.log("init Categories");
   }
 
 }

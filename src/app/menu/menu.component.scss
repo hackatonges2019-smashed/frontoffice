@@ -147,10 +147,17 @@
         font-family: 'Montserrat', sans-serif;
         font-size: 120%;
         cursor:pointer;
+        outline:none;
     }
     li:hover {
         color: #26903D;
         border-bottom:2px solid #26903D;
     }
+
+    li.selected {
+        color: #26903D;
+        border-bottom:2px solid #26903D;
+    }
+
 } 
 

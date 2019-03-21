@@ -13,12 +13,15 @@ export class MenuComponent implements OnInit {
 
   // categories: Category[];
   categories: Observable<Category[]>;
+  active:any;
 
   constructor(private categoriesService: CategoriesService) { }
 
-
+  clickCategory(category){
+    this.active = category;
+  }
+ 
   clicked(){
-    console.log("tu a cliqué");
     $('.transform').toggleClass('transform-active');
 
 if($('.transform').hasClass('transform-active')){

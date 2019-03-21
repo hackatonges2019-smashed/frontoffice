@@ -1,10 +1,27 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { MapComponent } from '../app/map/map.component';
+import { AppComponent } from './app.component';
+
+
+const routes: Routes = [
+
+  { path: '', redirectTo: 'map/', pathMatch: 'full' },
+  // { path: 'map', component: MapComponent },
+  { path: 'map/:nom', component: MapComponent },
+  { path: 'map/search/:id', component: MapComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
+  declarations: []
 })
+
+
 export class AppRoutingModule { }

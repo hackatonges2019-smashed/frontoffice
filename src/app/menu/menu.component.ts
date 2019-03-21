@@ -2,7 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from "rxjs";
 import { Category } from "../categories/category.model";
 import { CategoriesService } from '../categories/categories.service';
+import { FormControl,ReactiveFormsModule, FormsModule } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
 import * as $ from 'jquery'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -13,10 +18,12 @@ export class MenuComponent implements OnInit {
 
   // categories: Category[];
   categories: Category[];
+  
+  categSearch = new FormControl();
   subcategories: Category[];
   active:any;
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService,private router: Router) { }
 
   clickCategory(category){
     // console.log(this.categories);
@@ -45,12 +52,19 @@ export class MenuComponent implements OnInit {
       } , 250);
     }
   }
+
+  search(event){
+    if (event.key === "Enter") {
+    this.router.navigate(['/map/search/',event.target.value]);
+    }
+  }
     
   ngOnInit() {
     // console.log("hey");
     this.categoriesService.getCategories().subscribe(cat => {
       this.categories = cat;
     });
+
   }
 
 }

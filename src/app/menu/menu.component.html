@@ -1,19 +1,11 @@
 <div class="menu-style transform">
   <ul class="categories">
     <li *ngFor="let category of categories.value" keyword="category.nom" (click)="clickCategory(category)" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
-
   </ul>
   <div class="test">
-    <div class="line"></div>  <ul class="sous-categories">
-        <li keyword="homicides">Homicides</li>
-        <li keyword="enquêtes">Enquêtes</li>
-        <li keyword="fusiades">Fusiades</li>
-        <li keyword="drogues">Drogues</li>
-        <li keyword="enlevements">Enlevements</li>
-        <li keyword="braquages">Braquages</li>
-        <li keyword="séquestrations">Séquestrations</li>
-        <li keyword="prostitution">Prostitution</li>
-        <li keyword="armés">Armés</li>
+    <div class="line"></div>
+      <ul *ngIf="subcategories" class="sous-categories">
+        <li *ngFor="let category of subcategories" keyword="homicides" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
       </ul>
     <div >
         <input id="searchbar" type="text" />

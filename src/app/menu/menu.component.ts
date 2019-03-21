@@ -12,35 +12,45 @@ import * as $ from 'jquery'
 export class MenuComponent implements OnInit {
 
   // categories: Category[];
-  categories: Observable<Category[]>;
+  categories: Category[];
+  subcategories: Category[];
   active:any;
 
   constructor(private categoriesService: CategoriesService) { }
 
   clickCategory(category){
+    // console.log(this.categories);
     this.active = category;
+    this.populateSubCategories(category.id);
+  }
+
+  populateSubCategories(id){
+    this.categoriesService.getSubCategories(id).subscribe(cat => {
+      this.subcategories = cat;
+    });
   }
  
   clicked(){
     $('.transform').toggleClass('transform-active');
 
-if($('.transform').hasClass('transform-active')){
-    setTimeout(function(){ 
-      $('.test').toggleClass('test-hide');
-      $('.hide').toggleClass('visible');
-  } , 1200);
-  } else {
-    setTimeout(function(){ 
-      $('.test').toggleClass('test-hide');
-      $('.hide').toggleClass('visible');
-  } , 250);
+    if($('.transform').hasClass('transform-active')){
+      setTimeout(function(){ 
+          $('.test').toggleClass('test-hide');
+          $('.hide').toggleClass('visible');
+      } , 1200);
+    } else {
+      setTimeout(function(){ 
+          $('.test').toggleClass('test-hide');
+          $('.hide').toggleClass('visible');
+      } , 250);
+    }
   }
-}
     
   ngOnInit() {
     // console.log("hey");
-    this.categories = this.categoriesService.getCategories();
-    console.log(this.categories);
+    this.categoriesService.getCategories().subscribe(cat => {
+      this.categories = cat;
+    });
   }
 
 }

@@ -345,29 +345,14 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit() {
-    
-    
-
-        
     this.route.params.subscribe(data  =>{
-      
-      // let id : number = Number(this.route.snapshot.paramMap.get('id'));
-      // let letter : string = String(this.route.snapshot.paramMap.get('id'));
-      // let filter : string = String(this.route.snapshot.paramMap.get('id'));
       let a :any   = this.route.snapshot.paramMap.get('nom');
       console.log("YEAH:" + this.router.url);
       console.log("redg "+a);
       if(this.router.url === '/map/'+a){
         this.markers.clearMarkers();
-        // console.log($('ul.categories li:nth-child('+a +')'));
-        // $('ul.categories li').addClass('selected');
         this.positions = this.markers.getMarkers(a);
         console.log(a + " : " +this.positions);
-        
-      // } else if(this.router.url === '/employeelist/search/'+filter) {
-
-      //   let x = sessionStorage.getItem('x');
-      //   this.employees$ = this.employeeListService.searchEmployees(filter,JSON.parse(x));
       } 
       else {
         this.positions = this.markers.getMarkers("faits+divers");

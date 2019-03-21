@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { HomeComponent } from './home/home.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
@@ -21,6 +22,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

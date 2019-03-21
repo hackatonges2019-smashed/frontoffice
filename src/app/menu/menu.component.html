@@ -8,7 +8,7 @@
         <li *ngFor="let category of subcategories" keyword="homicides" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
       </ul>
     <div >
-        <input id="searchbar" type="text" />
+        <input id="categSearch" formControl="categSearch" type="text" (keydown)="search($event)" />
 
     </div></div>
 

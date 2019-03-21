@@ -1,6 +1,6 @@
 <div class="menu-style transform">
   <ul class="categories">
-    <li *ngFor="let category of categories.value" keyword="category.nom" (click)="clickCategory(category)" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
+    <li *ngFor="let category of categories" keyword="category.nom" (click)="clickCategory(category)" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
   </ul>
   <div class="test">
     <div class="line"></div>

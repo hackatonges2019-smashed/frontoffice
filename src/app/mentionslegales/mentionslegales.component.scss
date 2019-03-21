@@ -4,6 +4,13 @@
     padding-bottom: 67px;
 
     
+.logo {
+    position: absolute;;
+    top: 16px;
+    left: 5px;
+    width: 160px;
+  }
+
     .green-font {
         height: 200%;
     width: 80%;
@@ -15,8 +22,8 @@
     position: fixed;
     .close {
         position: fixed;
-        top: 14px;
-        right: 14px;
+            top: 40px;
+    right: 35px;
         background-image: url(/assets/img/croix-noir.png);
         background-size: 23px;
         background-repeat: no-repeat;

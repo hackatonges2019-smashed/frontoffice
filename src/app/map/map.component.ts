@@ -105,6 +105,14 @@ export class MapComponent implements OnInit {
       ]
     },
     {
+      "featureType": "administrative.country",
+      "stylers": [
+        {
+          "color": "#4d4d4d"
+        }
+      ]
+    },
+    {
       "featureType": "administrative.locality",
       "stylers": [
         {
@@ -113,8 +121,26 @@ export class MapComponent implements OnInit {
       ]
     },
     {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text",
+      "stylers": [
+        {
+          "color": "#949494"
+        },
+        {
+          "visibility": "simplified"
+        },
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
       "featureType": "administrative.province",
       "stylers": [
+        {
+          "color": "#4d4d4d"
+        },
         {
           "weight": 3
         }
@@ -280,13 +306,27 @@ export class MapComponent implements OnInit {
     },
     {
       "featureType": "water",
+      "stylers": [
+        {
+          "color": "#ff0080"
+        },
+        {
+          "visibility": "simplified"
+        },
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "featureType": "water",
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#191919"
+          "color": "#4d4d4d"
         },
         {
-          "lightness": 17
+          "lightness": 15
         }
       ]
     },

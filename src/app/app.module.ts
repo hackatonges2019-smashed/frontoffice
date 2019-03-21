@@ -14,6 +14,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MenuComponent } from './menu/menu.component';
 
 import { mapsapikey } from '../environments/environment';
+import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { mapsapikey } from '../environments/environment';
     MapComponent,
     ArticleComponent,
     MarkerComponent,
-    MenuComponent
+    MenuComponent,
+    MentionslegalesComponent
   ],
   imports: [
     BrowserModule,

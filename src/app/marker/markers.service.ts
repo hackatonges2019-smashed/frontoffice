@@ -93,6 +93,9 @@ export class MarkersService {
     });
   }
 
+  clearMarkers(){
+    this.markers = [];
+  }
   async getCities() {
     await this.getDepartement().then(
         () => {

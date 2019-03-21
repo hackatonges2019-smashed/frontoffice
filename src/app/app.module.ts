@@ -15,6 +15,7 @@ import { MenuComponent } from './menu/menu.component';
 
 import { mapsapikey } from '../environments/environment';
 import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
+import { AproposComponent } from './apropos/apropos.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MentionslegalesComponent } from './mentionslegales/mentionslegales.comp
     ArticleComponent,
     MarkerComponent,
     MenuComponent,
-    MentionslegalesComponent
+    MentionslegalesComponent,
+    AproposComponent
   ],
   imports: [
     BrowserModule,

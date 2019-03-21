@@ -1,4 +1,10 @@
 
+.logo {
+  position: absolute;;
+  top: 16px;
+  left: 5px;
+  width: 160px;
+}
 
 .map-position {
   width: 100%;
@@ -18,6 +24,7 @@
     position: fixed;
     border-top-left-radius: 11px !important;
   }
+
 
   ul { 
     padding-left: 10px;

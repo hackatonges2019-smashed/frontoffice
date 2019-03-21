@@ -1,10 +1,7 @@
 <div class="menu-style transform">
   <ul class="categories">
-    <li keyword="crimes">Crimes</li>
-    <li keyword="accidents">Accidents</li>
-    <li keyword="incendie">Incendie</li>
-    <li keyword="drogues">Drogues</li>
-    <li keyword="insolite">Insolite</li>
+    <li *ngFor="let category of categories.value" keyword="category.nom" (click)="clickCategory(category)" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
+
   </ul>
   <div class="test">
     <div class="line"></div>  <ul class="sous-categories">
@@ -23,5 +20,8 @@
 
     </div></div>
 
-  <div><a class="hide left">Mentions légales</a><a class="fleche" (click)="clicked()"></a><a class="hide right">A propos</a></div>
+  <div>
+    <a class="hide left" [routerLink]="['/mentionslegales']">Mentions légales</a>
+    <a class="fleche" (click)="clicked()"></a>
+    <a class="hide right" [routerLink]="['/apropos']">A propos</a></div>
 </div>

@@ -3,7 +3,8 @@ import { ArticleService } from '../article/article.service';
 import { Article } from '../article/article.model';
 import { Marker } from '../marker/marker.model';
 import { MarkersService } from '../marker/markers.service';
-
+import { ActivatedRoute,Router, NavigationExtras } from '@angular/router';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-map',
@@ -104,6 +105,14 @@ export class MapComponent implements OnInit {
       ]
     },
     {
+      "featureType": "administrative.country",
+      "stylers": [
+        {
+          "color": "#4d4d4d"
+        }
+      ]
+    },
+    {
       "featureType": "administrative.locality",
       "stylers": [
         {
@@ -112,8 +121,26 @@ export class MapComponent implements OnInit {
       ]
     },
     {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text",
+      "stylers": [
+        {
+          "color": "#949494"
+        },
+        {
+          "visibility": "simplified"
+        },
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
       "featureType": "administrative.province",
       "stylers": [
+        {
+          "color": "#4d4d4d"
+        },
         {
           "weight": 3
         }
@@ -279,13 +306,27 @@ export class MapComponent implements OnInit {
     },
     {
       "featureType": "water",
+      "stylers": [
+        {
+          "color": "#ff0080"
+        },
+        {
+          "visibility": "simplified"
+        },
+        {
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "featureType": "water",
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#191919"
+          "color": "#4d4d4d"
         },
         {
-          "lightness": 17
+          "lightness": 15
         }
       ]
     },
@@ -300,13 +341,39 @@ export class MapComponent implements OnInit {
     }
   ];
 
-  constructor(private markers : MarkersService) { }
+  constructor(private markers : MarkersService,private router:Router, private route: ActivatedRoute) { }
 
 
   ngOnInit() {
-    this.positions = this.markers.getMarkers("faits+divers");
-    console.log(this.positions);
-    // this.getArticles();
+    
+    
+
+        
+    this.route.params.subscribe(data  =>{
+      
+      // let id : number = Number(this.route.snapshot.paramMap.get('id'));
+      // let letter : string = String(this.route.snapshot.paramMap.get('id'));
+      // let filter : string = String(this.route.snapshot.paramMap.get('id'));
+      let a :any   = this.route.snapshot.paramMap.get('nom');
+      console.log("YEAH:" + this.router.url);
+      console.log("redg "+a);
+      if(this.router.url === '/map/'+a){
+        this.markers.clearMarkers();
+        // console.log($('ul.categories li:nth-child('+a +')'));
+        // $('ul.categories li').addClass('selected');
+        this.positions = this.markers.getMarkers(a);
+        console.log(a + " : " +this.positions);
+        
+      // } else if(this.router.url === '/employeelist/search/'+filter) {
+
+      //   let x = sessionStorage.getItem('x');
+      //   this.employees$ = this.employeeListService.searchEmployees(filter,JSON.parse(x));
+      } 
+      else {
+        this.positions = this.markers.getMarkers("faits+divers");
+      }
+   
+    });
   }
   
 }

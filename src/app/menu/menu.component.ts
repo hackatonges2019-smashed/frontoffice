@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from "rxjs";
+import { Category } from "../categories/category.model";
+import { CategoriesService } from '../categories/categories.service';
 import * as $ from 'jquery'
 
 @Component({
@@ -8,11 +11,17 @@ import * as $ from 'jquery'
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  // categories: Category[];
+  categories: Observable<Category[]>;
+  active:any;
 
+  constructor(private categoriesService: CategoriesService) { }
 
+  clickCategory(category){
+    this.active = category;
+  }
+ 
   clicked(){
-    console.log("tu a cliqué");
     $('.transform').toggleClass('transform-active');
 
 if($('.transform').hasClass('transform-active')){
@@ -29,7 +38,9 @@ if($('.transform').hasClass('transform-active')){
 }
     
   ngOnInit() {
-    console.log("hey");
+    // console.log("hey");
+    this.categories = this.categoriesService.getCategories();
+    console.log(this.categories);
   }
 
 }

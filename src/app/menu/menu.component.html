@@ -6,7 +6,7 @@
   <div class="test">
     <div class="line"></div>
       <ul *ngIf="subcategories" class="sous-categories">
-        <li *ngFor="let category of subcategories" keyword="homicides" (click)="clickCategory(category)" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
+        <li *ngFor="let category of subcategories" keyword="homicides" [ngClass]="{ 'selected': active == category}" [routerLink]="['/map/',category.nom]">{{category.nom}}</li>
       </ul>
     <div >
         <input id="searchbar" type="text" />

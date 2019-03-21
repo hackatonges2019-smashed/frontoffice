@@ -21,7 +21,7 @@ export class ArticleService {
 
   private dateNow: string = this.yyyymmdd(this.currentDate,0);
 
-  private dateThreeMonthsAgo: string = this.yyyymmdd(this.currentDate,3);
+  private dateThreeMonthsAgo: string = this.yyyymmdd(this.currentDate,1);
 
   // CONTRY : edition=fr-fr
   // query=macron
@@ -36,11 +36,10 @@ export class ArticleService {
     return this.http.get<Article[]>(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
   }
 
-  yyyymmdd(date,month) {
-    date.setMonth(date.getMonth()-month);
+  yyyymmdd(date,year) {
+    date.setFullYear(date.getFullYear()-year);
     var y = date.getFullYear().toString();
     var m = date.getMonth().toString();
-    console.log(m);
     var d = date.getDate().toString();
     (d.length == 1) && (d = '0' + d);
     (m.length == 1) && (m = '0' + m);

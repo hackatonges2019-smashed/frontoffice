@@ -52,9 +52,9 @@ export class MarkersService {
 	            		let article = JSON.parse(localStorage.getItem("articles_"+keywords+"_"+this.cities[city].nom));
 	            		this.articles = this.articles.concat(article);
 	            		let marker = new Marker();
-					    marker.lat = this.cities[city].centre.coordinates[1];
-					    marker.lng = this.cities[city].centre.coordinates[0];
-					    marker.nom = this.cities[city].nom;
+    					    marker.lat = this.cities[city].centre.coordinates[1];
+    					    marker.lng = this.cities[city].centre.coordinates[0];
+    					    marker.nom = this.cities[city].nom;
 			            marker.articles = article;
 		            	this.markers.push(marker);
 	            	}else {

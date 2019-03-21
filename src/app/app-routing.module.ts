@@ -6,12 +6,12 @@ import { MapComponent } from '../app/map/map.component';
 import { AppComponent } from './app.component';
 import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
 import { AproposComponent } from './apropos/apropos.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'map/', pathMatch: 'full' },
-  // { path: 'map', component: MapComponent },
+  { path:'', component: HomeComponent},
   { path: 'map/:nom', component: MapComponent },
   { path: 'map/search/:id', component: MapComponent },
   { path: 'mentionslegales', component: MentionslegalesComponent},

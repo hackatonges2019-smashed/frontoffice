@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 import { mapsapikey } from '../environments/environment';
 import { MentionslegalesComponent } from './mentionslegales/mentionslegales.component';
 import { AproposComponent } from './apropos/apropos.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AproposComponent } from './apropos/apropos.component';
     MarkerComponent,
     MenuComponent,
     MentionslegalesComponent,
-    AproposComponent
+    AproposComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

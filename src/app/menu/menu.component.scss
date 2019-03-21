@@ -2,6 +2,7 @@
 
     width: 50%;
     height: 80px;
+    position:fixed;
     background-color: #7AF395;
     border-top-left-radius: 42px;
     border-top-right-radius: 42px;
@@ -16,7 +17,8 @@
         a.fleche {
             position: fixed;
             bottom:3px;
-            background-image: url('/assets/img/haut.png');
+            background-image: url('/assets/img/croix.png');
+            background-size: 17px;
             background-repeat: no-repeat;
             width: 25px;
             height:26px;

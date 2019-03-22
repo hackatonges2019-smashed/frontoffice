@@ -51,24 +51,27 @@ export class MarkersService {
 	            	if(localStorage.getItem("articles_"+keywords+"_"+this.cities[city].nom)){
 	            		let article = JSON.parse(localStorage.getItem("articles_"+keywords+"_"+this.cities[city].nom));
 	            		this.articles = this.articles.concat(article);
-	            		let marker = new Marker();
-    					    marker.lat = this.cities[city].centre.coordinates[1];
-    					    marker.lng = this.cities[city].centre.coordinates[0];
-    					    marker.nom = this.cities[city].nom;
-			            marker.articles = article;
-		            	this.markers.push(marker);
+                  if(article['articles'].length > 0){
+                    let marker = new Marker();
+                    marker.lat = this.cities[city].centre.coordinates[1];
+                    marker.lng = this.cities[city].centre.coordinates[0];
+                    marker.nom = this.cities[city].nom;
+                    marker.articles = article;
+                    this.markers.push(marker);
+                  }
+                  resolve(true);
 	            	}else {
 		              this.articleService.getData(this.country,keywords+"+"+this.cities[city].nom).subscribe(article => {
 		                this.articles = this.articles.concat(article);
 		                if(article['articles'].length > 0){
 		                	let marker = new Marker();
-					        marker.lat = this.cities[city].centre.coordinates[1];
-					        marker.lng = this.cities[city].centre.coordinates[0];
-					        marker.nom = this.cities[city].nom;
+    					        marker.lat = this.cities[city].centre.coordinates[1];
+    					        marker.lng = this.cities[city].centre.coordinates[0];
+    					        marker.nom = this.cities[city].nom;
 			               	marker.articles = article;
 		            		this.markers.push(marker);
-	       					localStorage.setItem("articles_"+keywords+"_"+this.cities[city].nom, JSON.stringify(article));
-		                }
+                    }
+	       					  localStorage.setItem("articles_"+keywords+"_"+this.cities[city].nom, JSON.stringify(article));
 		                resolve(true);
 		              });
 		            }

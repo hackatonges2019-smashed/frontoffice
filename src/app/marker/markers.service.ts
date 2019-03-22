@@ -69,7 +69,7 @@ export class MarkersService {
     					        marker.lng = this.cities[city].centre.coordinates[0];
     					        marker.nom = this.cities[city].nom;
 			               	marker.articles = article;
-		            		this.markers.push(marker);
+		            		  this.markers.push(marker);
                     }
 	       					  localStorage.setItem("articles_"+keywords+"_"+this.cities[city].nom, JSON.stringify(article));
 		                resolve(true);

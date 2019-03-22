@@ -71,6 +71,7 @@
             border-radius: 25px;
             margin-top: 13px;
             cursor:pointer;
+            outline:none;
         }
         li:hover {
             color: #26903D;
@@ -104,15 +105,15 @@
     border-bottom: 3px solid white;
 }
 .transform {
-    -webkit-transition: all 2s ease;  
-    -moz-transition: all 2s ease;  
-    -o-transition: all 2s ease;  
-    -ms-transition: all 2s ease;  
-    transition: all 2s ease;
+    -webkit-transition: all 1s ease;  
+    -moz-transition: all 1s ease;  
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;  
+    transition: all 1s ease;
   }
   
   .transform-active {
-    height: 390px;
+    height: 280px;
 
     div {
         text-align: center;

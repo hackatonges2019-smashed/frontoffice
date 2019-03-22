@@ -13,8 +13,7 @@ export class ArticleComponent implements OnInit {
   test = "Voici une liste d'articles :";
 
   ngOnInit() {
-   // console.log(this.markers.getMarkers());
-    // this.getArticles();
+  
   }
 
 }

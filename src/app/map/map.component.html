@@ -1,7 +1,9 @@
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
+
 <div class="map-position">
+   
     <agm-map #gm [zoom]="6"  [minZoom]="3" [latitude]="defaultlat" [longitude]="defaultlng" style="height: 100vh;" [styles]="customStyle">
         <agm-marker (markerClick)="gm.lastOpen?.close(); gm.lastOpen = infoWindow" *ngFor='let position of positions' [iconUrl]="icons.icon" [latitude]="position.lat" [longitude]="position.lng">
           <agm-info-window #infoWindow>
@@ -16,3 +18,4 @@
 </div>
 <app-menu></app-menu>
 <img class="logo" src="assets/img/logo-pour-site.png"/>
+<a class="close" [routerLink]="['/']"></a>

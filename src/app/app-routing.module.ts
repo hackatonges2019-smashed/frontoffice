@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 const routes: Routes = [
 
   { path:'', component: HomeComponent},
+  { path:'map',redirectTo:"/map/",pathMatch: 'full'}, // fix cannot find /map
   { path: 'map/:nom', component: MapComponent },
   { path: 'map/search/:id', component: MapComponent },
   { path: 'mentionslegales', component: MentionslegalesComponent},

@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  // categories: Category[];
+  
   categories: Category[];
   
   categSearch = new FormControl();
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
   constructor(private categoriesService: CategoriesService,private router: Router) { }
 
   clickCategory(category){
-    // console.log(this.categories);
+    
     this.active = category;
     this.populateSubCategories(category.id);
   }
@@ -60,7 +60,7 @@ export class MenuComponent implements OnInit {
   }
     
   ngOnInit() {
-    // console.log("hey");
+   
     this.categoriesService.getCategories().subscribe(cat => {
       this.categories = cat;
     });

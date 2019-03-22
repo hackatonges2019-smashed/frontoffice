@@ -5,11 +5,24 @@
   left: 5px;
   width: 160px;
 }
+.close {
+  position: fixed;
+  top: 40px;
+  right: 35px;
+  background-image: url(/assets/img/croixblanche.png);
+  background-size: 23px;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 26px;
+  cursor: pointer;
+}
 
 .map-position {
   width: 100%;
   // margin-left: -8px;
   // margin-top: -8px;
+
+
 
   h5 {
     background-color: #7AF395;

@@ -31,9 +31,7 @@ export class ArticleService {
   constructor(private http:HttpClient) { }
 
   getData(country,keywords): Observable<Article[]> {
-    // console.log(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
-    // console.log(keywords);
-    return this.http.get<Article[]>(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
+      return this.http.get<Article[]>(this.apiUrl + "date=" + this.dateThreeMonthsAgo + "__" + this.dateNow + "&" +this.apiKey +"&"+ country + "&query=" + keywords + "&hard_limit=10");
   }
 
   yyyymmdd(date,year) {

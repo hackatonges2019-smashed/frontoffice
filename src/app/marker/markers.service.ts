@@ -102,6 +102,7 @@ export class MarkersService {
           let promises = [];
           console.log("DEPT. OK");
           // console.log(this.department);
+          this.cities = [];
           for(let dept=0; dept < this.department.length; dept++){
             promises.push(new Promise ((resolve, reject) => {
               this.citiesService.getData(this.department[dept].code).subscribe(city => {
